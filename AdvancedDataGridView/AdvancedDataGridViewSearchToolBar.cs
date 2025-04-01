@@ -140,7 +140,7 @@ namespace Zuby.ADGV
         {
             IDictionary<string, string> ret = new Dictionary<string, string>();
 
-            if (!String.IsNullOrEmpty(filename))
+            if (!string.IsNullOrEmpty(filename))
             {
                 //deserialize the file
                 try

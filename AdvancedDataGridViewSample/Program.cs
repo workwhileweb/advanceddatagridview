@@ -30,7 +30,7 @@ namespace AdvancedDataGridViewSample
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            if (!String.IsNullOrEmpty(ConfigurationManager.AppSettings["culture"]))
+            if (!string.IsNullOrEmpty(ConfigurationManager.AppSettings["culture"]))
             {
                 System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo(ConfigurationManager.AppSettings["culture"]);
                 System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(ConfigurationManager.AppSettings["culture"]);

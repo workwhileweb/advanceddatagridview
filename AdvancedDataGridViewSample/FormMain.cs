@@ -220,8 +220,9 @@ namespace AdvancedDataGridViewSample
 
             //sample use of the override string filter
             string stringcolumnfilter = textBox_strfilter.Text;
-            if (!String.IsNullOrEmpty(stringcolumnfilter))
-                e.FilterString += (!String.IsNullOrEmpty(e.FilterString) ? " AND " : "") + String.Format("string LIKE '%{0}%'", stringcolumnfilter.Replace("'", "''"));
+            if (!string.IsNullOrEmpty(stringcolumnfilter))
+                e.FilterString += (!string.IsNullOrEmpty(e.FilterString) ? " AND " : "") +
+                                  $"string LIKE '%{stringcolumnfilter.Replace("'", "''")}%'";
 
             textBox_filter.Text = e.FilterString;
         }
@@ -315,7 +316,7 @@ namespace AdvancedDataGridViewSample
         {
             if (CollectGarbageOnTimerMemoryUsageUpdate)
                 GC.Collect();
-            toolStripStatusLabel_memory.Text = String.Format("Memory Usage: {0}Mb", GC.GetTotalMemory(false) / (1024 * 1024));
+            toolStripStatusLabel_memory.Text = $"Memory Usage: {GC.GetTotalMemory(false) / (1024 * 1024)}Mb";
         }
 
         private void button_memorytest_Click(object sender, EventArgs e)

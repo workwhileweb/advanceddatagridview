@@ -307,7 +307,7 @@ namespace Zuby.ADGV
         {
             IDictionary<string, string> ret = new Dictionary<string, string>();
 
-            if (!String.IsNullOrEmpty(filename))
+            if (!string.IsNullOrEmpty(filename))
             {
                 //deserialize the file
                 try
@@ -769,7 +769,7 @@ namespace Zuby.ADGV
         {
             get
             {
-                return (!String.IsNullOrEmpty(_sortString) ? _sortString : "");
+                return (!string.IsNullOrEmpty(_sortString) ? _sortString : "");
             }
             private set
             {
@@ -941,7 +941,7 @@ namespace Zuby.ADGV
         {
             get
             {
-                return (!String.IsNullOrEmpty(_filterString) ? _filterString : "");
+                return (!string.IsNullOrEmpty(_filterString) ? _filterString : "");
             }
             private set
             {

@@ -67,13 +67,13 @@ namespace Zuby.ADGV
                 _filterType = FilterType.DateTime;
             else if (dataType == typeof(TimeSpan))
                 _filterType = FilterType.TimeSpan;
-            else if (dataType == typeof(Int32) || dataType == typeof(Int64) || dataType == typeof(Int16) ||
-                    dataType == typeof(UInt32) || dataType == typeof(UInt64) || dataType == typeof(UInt16) ||
-                    dataType == typeof(Byte) || dataType == typeof(SByte))
+            else if (dataType == typeof(int) || dataType == typeof(long) || dataType == typeof(short) ||
+                    dataType == typeof(uint) || dataType == typeof(ulong) || dataType == typeof(ushort) ||
+                    dataType == typeof(byte) || dataType == typeof(sbyte))
                 _filterType = FilterType.Integer;
-            else if (dataType == typeof(Single) || dataType == typeof(Double) || dataType == typeof(Decimal))
+            else if (dataType == typeof(float) || dataType == typeof(double) || dataType == typeof(decimal))
                 _filterType = FilterType.Float;
-            else if (dataType == typeof(String))
+            else if (dataType == typeof(string))
                 _filterType = FilterType.String;
             else
                 _filterType = FilterType.Unknown;
@@ -400,10 +400,10 @@ namespace Zuby.ADGV
 
             string filterString = BuildCustomFilter(_filterType, _filterDateAndTimeEnabled, comboBox_filterType.Text, _valControl1, _valControl2);
 
-            if (!String.IsNullOrEmpty(filterString))
+            if (!string.IsNullOrEmpty(filterString))
             {
                 _filterString = filterString;
-                _filterStringDescription = String.Format(AdvancedDataGridView.Translations[AdvancedDataGridView.TranslationKey.ADGVFilterStringDescription.ToString()], comboBox_filterType.Text, _valControl1.Text);
+                _filterStringDescription = string.Format(AdvancedDataGridView.Translations[AdvancedDataGridView.TranslationKey.ADGVFilterStringDescription.ToString()], comboBox_filterType.Text, _valControl1.Text);
                 if (_valControl2.Visible)
                     _filterStringDescription += " " + label_and.Text + " \"" + _valControl2.Text + "\"";
                 DialogResult = DialogResult.OK;
@@ -468,13 +468,13 @@ namespace Zuby.ADGV
             switch (_filterType)
             {
                 case FilterType.Integer:
-                    Int64 val;
-                    hasErrors = !(Int64.TryParse((sender as TextBox).Text, out val));
+                    long val;
+                    hasErrors = !(long.TryParse((sender as TextBox).Text, out val));
                     break;
 
                 case FilterType.Float:
-                    Double val1;
-                    hasErrors = !(Double.TryParse((sender as TextBox).Text, out val1));
+                    double val1;
+                    hasErrors = !(double.TryParse((sender as TextBox).Text, out val1));
                     break;
             }
 
